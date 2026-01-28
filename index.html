@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adarsh Artverse | Home</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-family: Arial, Helvetica, sans-serif;
+        text-align: center;
+
+        background:
+            linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+            url("https://i.pinimg.com/1200x/3e/9f/58/3e9f58e6ed92ab176746d36e37b3547c.jpg");
+
+        background-size: cover;
+        background-position: center;
+    }
+
+    .container {
+        max-width: 500px;
+        padding: 20px;
+    }
+
+    .logo {
+        width: 100%;
+        height: auto;
+        margin-bottom: 15px;
+        border-radius: 50%;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+
+        animation: fadeIn 1.5s ease forwards,
+            float 4s ease-in-out infinite;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: scale(0.8);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes float {
+        0% {
+            transform: translateY(0);
+        }
+
+        50% {
+            transform: translateY(-12px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    h1 {
+        font-size: 42px;
+        margin-bottom: 10px;
+        animation: fadeIn 1.8s ease forwards;
+    }
+
+    pre {
+        text-align: center;
+        font-size: 16px;
+        opacity: 0.85;
+        margin-bottom: 25px;
+        animation: fadeIn 2.2s ease forwards;
+    }
+
+    .enter-btn {
+        text-align: center;
+        padding: 12px 30px;
+        font-size: 16px;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        background: white;
+        color: black;
+        transition: transform 0.3s, box-shadow 0.3s;
+        animation: fadeIn 2.6s ease forwards;
+    }
+
+    .enter-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
+    .yt {
+        text-align: center;
+        margin-top: 22px;
+        animation: fadeIn 3s ease forwards;
+    }
+
+    .yt a {
+        text-decoration: none;
+        color: #ff4d4d;
+        font-size: 14px;
+        opacity: 0.85;
+        transition: opacity 0.3s;
+    }
+
+    .yt a:hover {
+        opacity: 1;
+    }
+</style>
+
+<body>
+
+    <div class="container">
+
+        <img src="https://images.seeklogo.com/logo-png/27/2/donald-duck-logo-png_seeklogo-279250.png" 
+        alt=" Logo" class="logo">
+
+        <h1>Adarsh Artverse</h1>
+        <pre>
+            Sketches • Characters • Imagination
+
+            I draw what words cannot explain.
+        </pre>
+
+        <button class="enter-btn" onclick="location.href = 'Gallery.html' ">
+            Enter Gallery
+        </button>
+
+        <div class="yt">
+            <a href="https://www.youtube.com/channel/UCcWceEe_1JXnac5mfExE0fw" target="_blank">
+                Visit my Youtube channel | Colorful Creations
+            </a>
+        </div>
+    </div>
+
+</body>
+
+</html>
