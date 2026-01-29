@@ -8,6 +8,50 @@
 </head>
 
 <style>
+     @media (max-width: 600px) {
+
+        body {
+            padding: 10px;
+        }
+
+        .container {
+            max-width: 100%;
+            padding: 10px;
+        }
+
+        .logo {
+            width: clamp(90px, 35vw, 120px);
+            margin-bottom: 12px;
+        }
+
+        h1 {
+            font-size: clamp(26px, 7vw, 34px);
+        }
+
+        pre {
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .enter-btn {
+            width: 100%;
+            max-width: 260px;
+            padding: 14px 0;
+            font-size: 16px;
+        }
+
+        .nav-btn {
+            width: 100%;
+            max-width: 260px;
+            padding: 14px 0;
+            font-size: 16px;
+        }
+
+        .yt a {
+            font-size: 13px;
+        }
+    }
+    
     body {
         margin: 0;
         height: 100vh;
@@ -100,6 +144,24 @@
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     }
 
+    .nav-btn {
+        padding: 12px 28px;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        background: white;
+        color: black;
+        font-size: 15px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        margin: 10px;
+        animation: fadeIn 2.6s ease forwards;
+    }
+
+    .nav-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+    }
+
     .yt {
         text-align: center;
         margin-top: 22px;
@@ -148,6 +210,10 @@
                 Enter Gallery
             </button>
 
+            <button class="nav-btn" onclick="location.href = 'about.html' ">
+                About Me
+            </button>
+
             <div class="yt">
                 <a href="https://www.youtube.com/channel/UCcWceEe_1JXnac5mfExE0fw" target="_blank">
                     Visit my Youtube channel | Colorful Creations
@@ -161,3 +227,4 @@
 </body>
 
 </html>
+
