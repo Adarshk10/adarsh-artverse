@@ -34,27 +34,25 @@
                 font-size: 14px;
                 padding: 10px;
             }
-
-            .nav-btn {
-                width: 90%;
-                max-width: 260px;
-                font-size: 14px;
-                padding: 10px;
-            }
         }
 
-        @media (max-width: 600px) {
-
-            .preview img {
-                max-width: 95%;
-                max-height: 85%;
-                border-radius: 10px;
+        @media (max-width: 700px) {
+            .preview-content {
+                flex-direction: column;
+                max-width: 95vw;
+                max-height: 95vh;
+                gap: 20px;
             }
 
-            .preview span {
-                font-size: 32px;
-                top: 15px;
-                right: 20px;
+            .preview-content img {
+                max-width: 90vw;
+                max-height: 55vh;
+            }
+
+            .art-details {
+                width: 90%;
+                max-height: 35vh;
+                overflow-y: auto;
             }
         }
 
@@ -65,9 +63,41 @@
         }
 
         body.dark {
-            --bg-color: #121212;
-            --text-color: #ffffff;
-            --card-bg: #1e1e1e;
+            --bg-color: #0f0f0f;
+            --text-color: #eaeaf0;
+            --card-bg: #1a1a24;
+        }
+
+        body.dark .search-bar {
+            background: #1a1a2a;
+            color: #ffffff;
+            border: 1px solid #333;
+        }
+
+        body.dark .search-bar::placeholder {
+            color: #aaaaaa;
+        }
+
+        body.dark .toggle-btn {
+            background: #2a2a3d;
+            color: #ffffff;
+        }
+
+        body.dark .nav-btn {
+            background: #2a2a3d;
+            color: #ffffff;
+        }
+
+        body.dark .nav-btn:hover {
+            box-shadow: 0 0 20px rgba(120, 120, 255, 0.3);
+        }
+
+        body.dark .card {
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        body.dark .card img:hover {
+            box-shadow: 0 0 30px rgba(120, 120, 255, 0.35);
         }
 
         body {
@@ -78,33 +108,15 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        .preview {
-            position: fixed;
-            top: 0px;
-            left: 0px;
+        .search-bar {
             width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.85);
-            display: none;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        .preview img {
-            max-width: 90%;
-            max-height: 90%;
-            border-radius: 12px;
-            animation: zoomIn 0.3s ease;
-        }
-
-        .preview span {
-            position: absolute;
-            top: 20px;
-            right: 30px;
-            font-size: 35px;
-            color: white;
-            cursor: pointer;
+            max-width: 400px;
+            padding: 12px;
+            margin: 20px auto;
+            display: block;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
         }
 
         @keyframes zoomIn {
@@ -151,6 +163,8 @@
             border-radius: 12px;
             text-align: center;
             transition: background-color 0.3s;
+            max-width: 260px;
+            margin: auto;
         }
 
         .card h2 {
@@ -171,7 +185,7 @@
             box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.3);
         }
 
-         .nav-btn {
+        .nav-btn {
             padding: 12px 28px;
             border-radius: 25px;
             border: none;
@@ -181,14 +195,97 @@
             font-size: 15px;
             transition: transform 0.3s, box-shadow 0.3s;
             margin: 10px;
-            text-decoration: none;
         }
 
         .nav-btn:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
+
+        .preview-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 90vw;
+            max-height: 90vh;
+            overflow: hidden;
+            gap: 32px;
+        }
+
+        .preview-content img {
+            max-width: 60vw;
+            max-height: 80vh;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+        }
+
+
+        #previewOverlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.75);
+            backdrop-filter: blur(6px);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 999;
+        }
+
+        .preview-box {
+            position: relative;
+            background: transparent;
+            max-width: 90vw;
+            max-height: 90vh;
+        }
+
+        .preview-box {
+            animation: zoomIn 0.3s ease;
+        }
+
+
+        .close-btn {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: #111;
+            color: #fff;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            font-size: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .art-details {
+            width: 260px;
+            background: rgba(15, 15, 25, 0.9);
+            padding: 20px;
+            border-radius: 14px;
+            color: #fff;
+            font-size: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+        }
+
+        .art-details h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .art-details ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .art-details li {
+            margin-bottom: 6px;
+        }
     </style>
+
 </head>
 
 <script>
@@ -198,21 +295,61 @@
 </script>
 
 <script>
-    function openPreview(src) {
-        document.getElementById("preview").style.display = "flex";
-        document.getElementById("previewImg").src = src;
-    }
+    function searchArt() {
+        let input = document.getElementById("searchInput").value.toLowerCase();
+        let items = document.querySelectorAll(".card");
 
-    function closePreview() {
-        document.getElementById("preview").style.display = "none";
+        items.forEach(item => {
+            let title = item.getAttribute("data-title").toLowerCase();
+            item.style.display = title.includes(input) ? "block" : "none";
+        });
     }
 </script>
 
+<script>
+    function openPreview(img) {
+        const card = img.closest(".card");
+
+        const overlay = document.getElementById("previewOverlay");
+        overlay.style.display = "flex";
+
+        document.getElementById("previewImg").src = img.src;
+        document.getElementById("artTitle").innerText = card.dataset.title;
+        document.getElementById("artDesc").innerText = card.dataset.desc;
+        document.getElementById("artFandom").innerText = card.dataset.fandom;
+        document.getElementById("artTool").innerText = card.dataset.tool;
+        document.getElementById("artYear").innerText = card.dataset.year;
+
+        document.body.style.overflow = "hidden";
+    }
+
+    function closePreview() {
+        document.getElementById("previewOverlay").style.display = "none";
+        document.body.style.overflow = "";
+    }
+</script>
+
+
 <body>
 
-    <div class="preview" id="preview" onclick="closePreview()">
-        <span onclick="closePreview()">&times;</span>
-        <img id="previewImg" alt="Full preview" onclick="event.stopPropagation()">
+    <div id="previewOverlay" onclick="closePreview()">
+        <div class="preview-box" onclick="event.stopPropagation()">
+            <span class="close-btn" onclick="closePreview()">&times;</span>
+
+            <div class="preview-content">
+                <img id="previewImg">
+                <div class="art-details">
+                    <h2 id="artTitle"></h2>
+                    <p id="artDesc"></p>
+
+                    <ul>
+                        <li><strong>Fandom:</strong> <span id="artFandom"></span></li>
+                        <li><strong>Tool:</strong> <span id="artTool"></span></li>
+                        <li><strong>Year:</strong> <span id="artYear"></span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
     </div>
 
     <h1>
@@ -223,86 +360,95 @@
         🌙/☀️ Toggle Dark Mode
     </button>
 
+    <input type="text" id="searchInput" placeholder="Search artwork..." onkeyup="searchArt()" class="search-bar" />
+
     <div class="album">
 
-        <div class="card">
+        <div class="card" data-title="Lucifer Morningstar"
+            data-desc="a dark yet playful take on Lucifer from Hazbin Hotel" data-fandom="Hazbin Hotel"
+            data-tool="Traditinal" data-year="2026">
 
             <h2>
                 Lucifer Morningstar
             </h2>
 
-            <img src="Images/Lucifer Morningstar from Hazbin Hotel.jpeg" alt="Lucifer Morningstar"
-                onclick="openPreview(this.src)">
+            <img src="Lucifer Morningstar from Hazbin Hotel.jpeg" alt="Lucifer Morningstar" onclick="openPreview(this)">
 
         </div>
 
-        <div class="card">
+        <div class="card" data-title="pomni and Gumigoo" data-desc="Lost together, pretending everything is fine."
+            data-fandom="The Amazing Digital Circus" data-tool="Traditinal" data-year="2025">
 
             <h2>
                 pomni and Gumigoo
             </h2>
 
-            <img src="Images/pomni and gumigoo.png" alt="Pomni and gumigoo" onclick="openPreview(this.src)">
+            <img src="pomni and gumigoo.png" alt="Pomni and gumigoo" onclick="openPreview(this)">
 
         </div>
 
-        <div class="card">
+        <div class="card" data-title="Alastor" data-desc="Polite smile, dangerous thoughts playing quietly inside."
+            data-fandom="Hazbin Hotel" data-tool="Traditional" data-year="2026">
 
             <h2>
                 Alastor
             </h2>
 
-            <img src="Images/Alastor.jpeg" alt="Alastor" onclick="openPreview(this.src)">
+            <img src="Alastor.jpeg" alt="Alastor" onclick="openPreview(this)">
 
         </div>
 
-        <div class="card">
+        <div class="card" data-title="Amity Blight" data-desc="Soft heart, sharp edges, learning who she wants to be."
+            data-fandom="The Owl House" data-tool="Traditional" data-year="2024">
 
             <h2>
                 Amity Blight
             </h2>
 
-            <img src="Images/Amity Blight.jpeg" alt="Amity Blight" onclick="openPreview(this.src)">
+            <img src="Amity Blight.jpeg" alt="Amity Blight" onclick="openPreview(this)">
 
         </div>
 
-        <div class="card">
+        <div class="card" data-title="Itachi Uchiha" data-desc="Quiet eyes that carry too many goodbyes."
+            data-fandom="Naruto" data-tool="Traditional" data-year="2025">
 
             <h2>
                 Itachi Uchiha
             </h2>
 
-            <img src="Images/Itachi Uchiha.jpeg" alt="Itachi Uchiha" onclick="openPreview(this.src)">
+            <img src="Itachi Uchiha.jpeg" alt="Itachi Uchiha" onclick="openPreview(this)">
 
         </div>
 
-        <div class="card">
+        <div class="card" data-title="Nifty" data-desc="Cute on the outside, unsettling on the inside."
+            data-fandom="Hazbin Hotel" data-tool="Traditional" data-year="2025">
 
             <h2>
                 Nifty
             </h2>
 
-            <img src="Images/Nifty.jpeg" alt="Nifty" onclick="openPreview(this.src)">
+            <img src="Nifty.jpeg" alt="Nifty" onclick="openPreview(this)">
 
         </div>
 
-        <div class="card">
+        <div class="card" data-title="Vox" data-desc="Bright screen, darker intentions behind the glow."
+            data-fandom="Hazbin Hotel" data-tool="Traditional" data-year="2025">
 
             <h2>
                 Vox
             </h2>
 
-            <img src="Images/Vox.jpeg" alt="Vox" onclick="openPreview(this.src)">
+            <img src="Vox.jpeg" alt="Vox" onclick="openPreview(this)">
 
         </div>
 
     </div>
 
-    <a href="about.html" class="nav-btn">About & Contact</a>
+    <button class="nav-btn" onclick="location.href='about.html'">
+        About & Contact
+    </button>
+
 
 </body>
 
-
 </html>
-
-
