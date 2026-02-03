@@ -8,54 +8,6 @@
 </head>
 
 <style>
-     @media (max-width: 600px) {
-
-        body {
-            padding: 10px;
-        }
-
-        .container {
-            max-width: 100%;
-            padding: 10px;
-        }
-
-        .logo {
-            width: clamp(90px, 35vw, 120px);
-            margin-bottom: 12px;
-        }
-
-        h1 {
-            font-size: clamp(26px, 7vw, 34px);
-        }
-
-        pre {
-            font-size: 14px;
-            line-height: 1.5;
-        }
-
-        .nav-btn {
-            width: 90%;
-            max-width: 280px;
-            font-size: 15px;
-            padding: 12px;
-            margin: 10px auto;
-            display: block;
-        }
-
-        .enter-btn {
-            width: 90%;
-            max-width: 280px;
-            font-size: 15px;
-            padding: 12px;
-            margin: 10px auto;
-            display: block;
-        }
-
-        .yt a {
-            font-size: 13px;
-        }
-    }
-    
     body {
         margin: 0;
         height: 100vh;
@@ -116,6 +68,12 @@
         }
     }
 
+    @keyframes pageFadeOut {
+        to {
+            opacity: 0;
+        }
+    }
+
     h1 {
         font-size: 42px;
         margin-bottom: 10px;
@@ -128,6 +86,11 @@
         opacity: 0.85;
         margin-bottom: 25px;
         animation: fadeIn 2.2s ease forwards;
+    }
+
+    .intro-text {
+        opacity: 0;
+        animation-delay: 1.6s;
     }
 
     .enter-btn {
@@ -148,6 +111,10 @@
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     }
 
+    .fade-out {
+        animation: pageFadeOut 0.8s ease forwards;
+    }
+
     .nav-btn {
         padding: 12px 28px;
         border-radius: 25px;
@@ -165,7 +132,7 @@
         transform: scale(1.05);
         box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
     }
-    
+
     .yt {
         text-align: center;
         margin-top: 22px;
@@ -185,60 +152,44 @@
     }
 </style>
 
+<script>
+    function enterGallery() {
+        document.body.classList.add("fade-out");
+        setTimeout(() => {
+            window.location.href = "Gallery.html";
+        }, 800);
+    }
+</script>
+
 <body>
 
-     <div class="container">
+    <div class="container">
 
-        <header>
+        <img src="https://images.seeklogo.com/logo-png/27/2/donald-duck-logo-png_seeklogo-279250.png" alt=" Logo"
+            class="logo">
 
-            <img src="https://images.seeklogo.com/logo-png/27/2/donald-duck-logo-png_seeklogo-279250.png" alt=" Logo"
-                class="logo">
-
-            <h1>Adarsh Artverse</h1>
-            
-        </header>
-
-        <main>
-
-            <pre>
+        <h1>Adarsh Artverse</h1>
+        <pre class="intro-text">
             Sketches • Characters • Imagination
 
             I draw what words cannot explain.
-            </pre>
+        </pre>
 
-        </main>
+        <button class="enter-btn" onclick="enterGallery()">
+            Enter Gallery
+        </button>
 
-        <footer>
+        <button class="nav-btn" onclick="location.href='about.html'">
+            About Me
+        </button>
 
-            <button class="enter-btn" onclick="location.href = 'Gallery.html' ">
-                Enter Gallery
-            </button>
-
-            <button class="nav-btn" onclick="location.href='about.html'">
-                About Me
-            </button>
-
-            <div class="yt">
-                <a href="https://www.youtube.com/channel/UCcWceEe_1JXnac5mfExE0fw" target="_blank">
-                    Visit my Youtube channel | Colorful Creations
-                </a>
-            </div>
-
-        </footer>
-
+        <div class="yt">
+            <a href="https://www.youtube.com/channel/UCcWceEe_1JXnac5mfExE0fw" target="_blank">
+                Visit my Youtube channel | Colorful Creations
+            </a>
+        </div>
     </div>
 
 </body>
 
 </html>
-
-
-
-
-
-
-
-
-
-
-
